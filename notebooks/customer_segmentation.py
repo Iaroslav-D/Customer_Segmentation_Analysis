@@ -1,11 +1,6 @@
-#!/usr/bin/env python
-# coding: utf-8
+# Customer segmentation
 
-# ## Customer segmentation
-
-# ### k-means clustering
-
-# In[1]:
+# k-means clustering
 
 
 import pandas as pd
@@ -22,7 +17,6 @@ print(df.info())
 print(df.describe())
 
 
-# In[2]:
 
 
 # check for missing values
@@ -32,7 +26,6 @@ print("Missing values in each column: ")
 print(missing_values)
 
 
-# In[3]:
 
 
 # exploratory data analysis (EDA)
@@ -51,7 +44,6 @@ sns.scatterplot(x = 'Annual Income (k$)', y = 'Spending Score (1-100)', data = d
 plt.title('Spending Score vs. Annual Income')
 
 
-# In[5]:
 
 
 from sklearn.preprocessing import StandardScaler
@@ -64,7 +56,6 @@ scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
 
 
-# In[6]:
 
 
 # k-means clustering
@@ -90,7 +81,6 @@ plt.ylabel('Inertia')
 plt.show
 
 
-# In[11]:
 
 
 # Silhouette Score
@@ -124,7 +114,6 @@ optimal_k = k_values[silhouette_scores.index(max(silhouette_scores))]
 print(f'The optimal number of clusters based on silhouette score is: {optimal_k}')
 
 
-# In[8]:
 
 
 # fitting the model with the optimal number of clusters 
@@ -141,7 +130,6 @@ plt.title('Customer Segments')
 plt.show()
 
 
-# In[10]:
 
 
 # analyze clusters
@@ -152,28 +140,4 @@ print(cluster_summary)
 
 # count of customers per cluster
 print(df['Cluster'].value_counts())
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
 
